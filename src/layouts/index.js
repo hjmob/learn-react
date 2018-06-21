@@ -1,7 +1,7 @@
 import withRouter from 'umi/withRouter';
 import { connect } from 'dva';
 import { IntlProvider } from 'react-intl';
-import { NavBar, Icon } from 'antd-mobile';
+import { NavBar} from 'antd-mobile';
 import styles from './index.less'
 import Link from 'umi/link';
 
@@ -20,7 +20,7 @@ export default withRouter(
         <div>
         <NavBar
          mode="light"
-         leftContent={<img src="//img.ithome.com/m/images/index/logo.svg" className={styles.logo} />}
+         leftContent={<img src="//img.ithome.com/m/images/index/logo.svg" alt="" className={styles.logo} />}
          onLeftClick={() => console.log('onLeftClick')}
         //  rightContent={[
         //   <Link to="/" key="">

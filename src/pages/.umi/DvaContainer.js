@@ -12,6 +12,7 @@ app.use(createLoading());
 
 app.model({ namespace: 'global', ...(require('E:/umi/with-dva/src/models/global.js').default) });
 app.model({ namespace: 'model', ...(require('E:/umi/with-dva/src/pages/index/model.js').default) });
+app.model({ namespace: 'model', ...(require('E:/umi/with-dva/src/pages/details/model.js').default) });
 app.model({ namespace: 'a', ...(require('E:/umi/with-dva/src/pages/list/models/a.js').default) });
 app.model({ namespace: 'b', ...(require('E:/umi/with-dva/src/pages/list/models/b.js').default) });
 app.model({ namespace: 'model', ...(require('E:/umi/with-dva/src/pages/list/search/model.js').default) });

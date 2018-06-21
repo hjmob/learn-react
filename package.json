@@ -4,10 +4,12 @@
     "dev:test": "cross-env PORT=9090 WATCH_FILES=none BROWSER=none CLEAR_CONSOLE=none COMPILE_ON_DEMAND=none COVERAGE=true umi dev",
     "test": "macaca run -d ./test --verbose",
     "serve": "npm run dev:test &",
-    "ci": "npm run serve && npm test"
+    "ci": "npm run serve && npm test",
+    "build": "cross-env PUBLIC_PATH=/build/ithome umi build"
   },
   "dependencies": {
     "react-intl": "^2.4.0",
+    "react-router-breadcrumbs-hoc": "^2.1.4",
     "react-sticky": "^6.0.2",
     "umi": "*",
     "umi-plugin-dva": "*",

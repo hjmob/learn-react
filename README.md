@@ -1,4 +1,4 @@
-## REACT LEANING DEMO
+## REACT LEARNING DEMO
 
 > 使用了umi,
 

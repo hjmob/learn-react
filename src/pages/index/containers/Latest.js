@@ -6,24 +6,13 @@ import {FormattedDate} from 'react-intl';
 import styles from './Latest.less';
 import router from 'umi/router';
 
-// const data = [     {         img:
-// 'https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png',         title:
-// 'Meet hotel',         des: '不是所有的兼职汪都需要风吹日晒'     }, {         img:
-// 'https://zos.alipayobjects.com/rmsportal/XmwCzSeJiqpkuMB.png',         title:
-// 'McDonald\'s invites you',         des: '不是所有的兼职汪都需要风吹日晒'     }, { img:
-// 'https://zos.alipayobjects.com/rmsportal/hfVtzEhPzTUewPm.png', title: 'Eat
-// the week',         des: '不是所有的兼职汪都需要风吹日晒'     } ]; const NUM_ROWS = 20; let
-// pageIndex = 0; function genData(pIndex = 0) {     const dataBlob = {}; for
-// (let i = 0; i < NUM_ROWS; i++) {         const ii = (pIndex * NUM_ROWS) + i;
-//      dataBlob[`${ii}`] = `row - ${ii}`;     }     return dataBlob; }
-
 class Latest extends Component {
+    
     constructor(props) {
         super(props);
         const dataSource = new ListView.DataSource({
             rowHasChanged: (row1, row2) => row1 !== row2
         });
-
         this.state = {
             dataSource,
             isLoading: true
@@ -31,11 +20,7 @@ class Latest extends Component {
     }
 
     componentDidMount() {
-        // you can scroll to the specified position setTimeout(() => this.lv.scrollTo(0,
-        // 120), 800); simulate initial Ajax setTimeout(() => {     this.rData =
-        // genData();     this.setState({         dataSource: this             .state
-        // .dataSource             .cloneWithRows(this.rData), isLoading: false  }); },
-        // 600); this._getIndexNews()
+        
     }
 
     _getIndexNews() {
@@ -44,12 +29,7 @@ class Latest extends Component {
             .dispatch({type: 'index/get_lateset'});
     }
 
-    // If you use redux, the data maybe at props, you need use
-    // `componentWillReceiveProps` componentWillReceiveProps(nextProps) {   if
-    // (nextProps.dataSource !== this.props.dataSource) {     this.setState({
-    // dataSource: this.state.dataSource.cloneWithRows(nextProps.dataSource), }); }
-    // }
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.dataSource !== this.props.dataSource) {
             this.setState({
                 dataSource: this
@@ -75,8 +55,8 @@ class Latest extends Component {
     }
 
     navigate(id){
-        console.log('navigate to',id)
-        router.push('/')
+        // console.log('navigate to',id)
+        router.push(`/details?id=${id}`)
     }
 
     render() {
@@ -91,6 +71,7 @@ class Latest extends Component {
         const data = this.props.dataSource
         let index = 0;
         const row = (rowData, sectionID, rowID) => {
+            console.log(sectionID,rowID)
             if (index > data.length - 1) {
                 index = 0;
             }
