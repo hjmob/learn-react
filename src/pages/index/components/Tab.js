@@ -13,30 +13,45 @@ function renderTabBar(props) {
 }
 const tabs = [
   {
-    title: '最新'
+    title: '最新',
+    tab_name:'Latest'
   }, {
-    title: '排行榜'
+    title: '排行榜',
+    tab_name:'Rank'
+
   }, {
-    title: '上热评'
+    title: '上热评',
+    tab_name:'Rank'
   }, {
-    title: '测评室'
+    title: '测评室',
+    tab_name:'Rank'
   }, {
-    title: '发布会'
+    title: '发布会',
+    tab_name:'Rank'
   }, {
-    title: '专题'
+    title: '专题',
+    tab_name:'Rank'
   }, {
-    title: '阳台'
+    title: '阳台',
+    tab_name:'Rank'
   }
 ];
 
-const ItTab = () => (
-  <div>
-
-    <StickyContainer>
-      <Tabs tabs={tabs} initalPage={'t2'} renderTabBar={renderTabBar}></Tabs>
-    </StickyContainer>
-
-  </div>
-);
+const ItTab = (props) =>{
+  function changeTab(tab,idx) {
+    props.onTabChange({
+      tab,idx
+    })
+  }
+  return  (
+    <div>
+  
+      <StickyContainer>
+        <Tabs tabs={tabs} initalPage={'t2'} renderTabBar={renderTabBar} onTabClick={(tab,index)=>changeTab(tab,index)}></Tabs>
+      </StickyContainer>
+  
+    </div>
+  );
+}
 
 export default ItTab;

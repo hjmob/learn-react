@@ -5,9 +5,13 @@ import {WhiteSpace} from 'antd-mobile';
 import Latest from './containers/Latest'
 
 function App(props) {
+  const init_tab='latest';
+  function displayCom({idx,tab}){
+    console.log(tab)
+  }
   return (
     <div>
-      <ItTab/>
+      <ItTab onTabChange={displayCom}/>
       <Banner img_data={props.banner}/>
       <WhiteSpace size="lg"/>
       <Latest/>

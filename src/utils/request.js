@@ -21,16 +21,21 @@ export default async function request(url, options) {
   const response = await fetch(url, options);
 
   checkStatus(response);
-
-  const data = await response.json();
-
+  let data;
+  if (options && options.headers['content-type'] === "text/xml") {
+    data = await response.text();
+  } else {
+    data = await response.json();
+  }
   const ret = {
     data,
-    headers: {},
+    headers: {}
   };
 
   if (response.headers.get('x-total-count')) {
-    ret.headers['x-total-count'] = response.headers.get('x-total-count');
+    ret.headers['x-total-count'] = response
+      .headers
+      .get('x-total-count');
   }
 
   return ret;

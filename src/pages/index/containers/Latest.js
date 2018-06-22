@@ -20,7 +20,7 @@ class Latest extends Component {
     }
 
     componentDidMount() {
-        
+        this._getIndexNews()
     }
 
     _getIndexNews() {

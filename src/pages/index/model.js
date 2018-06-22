@@ -7,9 +7,12 @@ export default {
     banner_data: []
   },
   reducers : {
-    update_news(state, {payload: {
-        list,banner
-      }}) {
+    update_news(state, {
+      payload: {
+        list,
+        banner
+      }
+    }) {
       return {
         ...state,
         latest_news: list,
@@ -20,19 +23,25 @@ export default {
   effects : {
     *get_lateset({}, {call, put}) {
       const {data} = yield call(index_request.fetch);
-      const {data:banner} = yield call(index_request.banner_data)
+      const {data: banner} = yield call(index_request.banner_data)
       const list = data.newslist;
-      yield put({type: 'update_news', payload: {
+      yield put({
+        type: 'update_news',
+        payload: {
           list,
           banner
-        }})
+        }
+      })
     }
   },
   subscriptions : {
     setup({dispatch, history}) {
       return history.listen(({pathname, query}) => {
         console.log(history);
-        dispatch({type: 'get_lateset'});
+        // if (pathname === '/') {
+        //   dispatch({type: 'get_lateset'});
+
+        // }
       });
     }
   }
