@@ -13,7 +13,8 @@
     "react-sticky": "^6.0.2",
     "umi": "*",
     "umi-plugin-dva": "*",
-    "umi-plugin-routes": "*"
+    "umi-plugin-routes": "*",
+    "xmlstring2json": "^0.1.9"
   },
   "devDependencies": {
     "babel-plugin-istanbul": "^4.1.6",

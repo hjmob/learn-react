@@ -38,7 +38,7 @@ if (module.hot) {
   });
 }
 
-require('E:/umi/with-dva/src/global.less');
+require('/Users/Nico/Documents/learn-react/src/global.less');
 // Enable service worker
 if (process.env.NODE_ENV === 'production') {
   require('./registerServiceWorker');
